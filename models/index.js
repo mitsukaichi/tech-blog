@@ -28,3 +28,5 @@ User.hasMany(Comment, {
 Comment.belongsTo(User, {
     foreignKey: 'author_id',
 });
+
+module.exports = { User, Comment, Post };
