@@ -12,6 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      // reload the page to generate the content shown for the user after logging in
       document.location.replace('/');
     } else {
       alert('Failed to log in.');
@@ -34,6 +35,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      // reload the page to generate the content shown for the user after logging in
       document.location.replace('/');
     } else {
       alert('Failed to sign up.');
