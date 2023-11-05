@@ -118,6 +118,29 @@ nav a:hover {
   padding: 15px;
 }
 
+.comment-content {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.comment-metadata {
+  font-size: 0.8rem;
+  padding: 10px;
+  text-align: right;
+}
+
+.add-comment {
+  padding: 20px;
+}
+
+.comment-input {
+  width: 700px;
+}
+
+.comment-submit{
+  margin: 5px;
+}
+
 /* LAYOUT */
 .container {
   display: flex;

@@ -34,11 +34,7 @@ Comment.init(
     creation_date: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-    },
-    update_date: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
-    },
+    }
   },
   {
     sequelize,

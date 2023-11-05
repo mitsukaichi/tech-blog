@@ -1,0 +1,22 @@
+<section class="card">
+  <header>
+    <div class="blog-title">{{post.title}}</div>
+    <div class="blog-author">Posted by {{post.author_name}} on {{format_date post.creation_date}}</div>
+  </header>
+  <div class="blog-content">
+    {{post.content}}
+  </div>  
+</section>
+
+{{#each post.comments as |comment|}}
+{{> comment-details}}
+{{/each}}
+
+<br>
+
+<section class="card">
+    <form class="add-comment">
+    <input class='comment-input' type="text" value="Add your comment">
+    <input class='comment-submit' type="Submit" value="Submit">
+    </form>
+</section>

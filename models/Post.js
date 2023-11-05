@@ -31,6 +31,10 @@ Post.init(
             key: 'id',
         },
     },
+    update_date: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
   },
   {
     sequelize,

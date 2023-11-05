@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
         posts.push(dbPostData[i].dataValues);
         posts[i].username = dbPostData[i].dataValues.user.dataValues.username;
       };
-      console.log(posts);
       res.render('homepage', { posts });
     } catch (err) {
       console.log(err);
@@ -25,9 +24,46 @@ router.get('/', async (req, res) => {
     }
   });
   
-
 // Get a single post with comment for the post detail page
-
+router.get('/blog/:id', async (req, res) => {
+    try {
+      const dbPostData = await Post.findByPk(req.params.id, {
+        include: [
+            {
+                model: User,
+                attributes: ['username'],
+            },
+            {
+                model: Comment,
+                include: {
+                    model: User
+                }
+            }
+        ],
+      });
+    const post = {
+        id: dbPostData.dataValues.id,
+        title: dbPostData.dataValues.title,
+        content: dbPostData.dataValues.content,
+        creation_date: dbPostData.dataValues.creation_date,
+        author_name: dbPostData.dataValues.user.dataValues.username,
+        comments: []
+    };
+    for (i = 0; i < dbPostData.dataValues.comments.length; i++) {
+        post.comments.push({
+            comment: dbPostData.dataValues.comments[i].dataValues.content,
+            username: dbPostData.dataValues.comments[i].dataValues.user.dataValues.username,
+            creation_date: dbPostData.dataValues.comments[i].dataValues.creation_date,
+        })
+    };
+    console.log(post);
+    res.render('blog', { post});
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+  
 
 // Get all posts you wrote in the dashboard page
 
