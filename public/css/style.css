@@ -29,7 +29,7 @@ a:visited {
 }
 
 header {
-  padding: 40px;
+  padding: 20px;
   text-align: center;
   background: var(--primary);
   color: var(--light);
@@ -39,14 +39,6 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-}
-
-aside {
-  flex: 0;
-  background-color: var(--tertiary);
-  padding: 80px;
-  text-align: left;
-  color: var(--light);
 }
 
 nav {
@@ -66,16 +58,6 @@ nav a:hover {
   background-color: var(--dark);
 }
 
-.gallery {
-  flex: 4;
-  background-color: #fff;
-  padding: 50px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-}
-
 .btn-no-style {
   background: none;
   border: none;
@@ -87,15 +69,9 @@ nav a:hover {
   margin-left: 16px;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 /* CARDS */
 .card {
   margin: 20px;
-  flex: 0 1 300px;
   border: 7px double var(--dark);
   border-radius: 10px;
   background-color: var(--light);
@@ -115,20 +91,38 @@ img {
   color: var(--light);
 }
 
+.blogs {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+}
+
 .card header {
   color: var(--light);
   font-weight: bold;
-  text-transform: uppercase;
   margin: 0;
   background-color: var(--tertiary);
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
-.card-body {
-  font-size: 1.4rem;
-  text-align: center;
+.blog-title {
   font-weight: bold;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.blog-author {
+  font-weight: light;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+
+.blog-content {
+  font-size: 1.2rem;
+  padding: 15px;
 }
 
 /* LAYOUT */
