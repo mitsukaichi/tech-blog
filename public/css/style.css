@@ -19,11 +19,6 @@ body {
   background-color: var(--quatrinary);
 }
 
-a {
-  color: var(--dark);
-  text-decoration: none;
-}
-
 a:visited {
   color: inherit;
 }
@@ -99,8 +94,6 @@ nav a:hover {
 }
 
 .card header {
-  color: var(--light);
-  font-weight: bold;
   margin: 0;
   background-color: var(--tertiary);
   padding: 0.625rem;
@@ -108,6 +101,7 @@ nav a:hover {
 }
 
 .blog-title {
+  color: var(--dark);
   font-weight: bold;
   font-size: 1.4rem;
   text-align: left;
@@ -118,7 +112,6 @@ nav a:hover {
   font-size: 0.8rem;
   text-align: right;
 }
-
 
 .blog-content {
   font-size: 1.2rem;
