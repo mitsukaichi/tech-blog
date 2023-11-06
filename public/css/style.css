@@ -150,6 +150,7 @@ p {
   font-weight: bold;
   font-size: 1.4rem;
   text-align: left;
+  padding: 5px;
 }
 
 .blog-author {

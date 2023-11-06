@@ -2,12 +2,12 @@
     {{#if loggedIn}}
         {{#each posts as |post|}}
             <section class="card">
-                <a href="/blog/{{id}}">
+                <a href="/edit/{{id}}">
                     <div class="card-title">{{title}}</div>
                 </a>
             </section>
         {{/each}}
-        <a href="/newpost{{id}}">
+        <a href="/newpost">
             <button id="new-post" class="btn-style">Add a new post</button>
         </a>
     {{else}}
