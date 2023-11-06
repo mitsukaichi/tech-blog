@@ -16,6 +16,8 @@ router.get('/:id', async (req, res) => {
 
 // Create a comment to the specific post
 router.post('/', async (req, res) => {
+  console.log(req.body);
+  console.log(req.session);
   res.json(req.body);
   // try {
   //   const newComment = await Comment.create({
