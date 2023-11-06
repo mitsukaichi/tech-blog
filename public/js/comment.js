@@ -11,9 +11,8 @@ const commentHandler = async (event) => {
       });
   
       if (response.ok) {
-        // reload the page to generate the content shown for the user after logging in
         console.log(response);
-        // location.reload();
+        location.reload();
       } else {
         alert('Failed to leave comment. Try again');
       }
