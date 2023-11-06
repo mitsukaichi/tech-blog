@@ -67,7 +67,24 @@ router.delete('/:id', async (req, res) => {
 
 // Create a post
 
-// Get all posts by the user
+router.post('/', async (req, res) => {
+  try {
+    const newPost = await Post.create({
+      title: req.body.title,
+      content: req.body.content,
+      author_id: req.session.user_id,
+    });
+  if (newPost) {
+    res.status(200).json(newPost);
+  } else {
+    res.status(400).json({ message: 'Failed to post a new blog' });
+  }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 
 module.exports = router;

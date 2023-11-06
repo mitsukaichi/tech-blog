@@ -63,9 +63,6 @@ router.get('/blog/:id', async (req, res) => {
       res.status(500).json(err);
     }
   });
-  
-// Get all posts you wrote in the dashboard page
-
 
 // Login page - redirect user to the home page if the user is already logged in
 router.get('/login', (req, res) => {
@@ -85,5 +82,36 @@ router.get('/signup', (req, res) => {
   }
 });
 
+// Dashboard - show all the blog titles the signin user posted
+
+router.get('/dashboard', async (req, res) => {
+  if (req.session.loggedIn) {
+    try {
+      const dbPostData = await Post.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ['username'],
+            where: {id: req.session.req.session.user_id}
+          },
+        ],
+      });
+      let posts = [];
+      for (i = 0; i < dbPostData.length; i++) {
+        posts.push(dbPostData[i].dataValues);
+        posts[i].username = dbPostData[i].dataValues.user.dataValues.username;
+      };
+      res.render('dashboard', { posts, loggedIn: req.session.loggedIn  });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  } else {
+    res.render('dashboard')
+  }
+});
+
+// New post page
+router.get('/newpost', (req, res) => {res.render('newpost', { loggedIn: req.session.loggedIn });});
 
 module.exports = router;

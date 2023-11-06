@@ -1,0 +1,16 @@
+<div class = 'blogs'>
+    {{#if loggedIn}}
+        {{#each posts as |post|}}
+            <section class="card">
+                <a href="/blog/{{id}}">
+                    <div class="card-title">{{title}}</div>
+                </a>
+            </section>
+        {{/each}}
+        <a href="/newpost{{id}}">
+            <button id="new-post" class="btn-style">Add a new post</button>
+        </a>
+    {{else}}
+        <p><a href="/login">Login</a> to post new blogs </p>
+    {{/if}}
+</div>
