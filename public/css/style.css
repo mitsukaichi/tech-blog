@@ -53,6 +53,15 @@ nav a:hover {
   background-color: var(--dark);
 }
 
+h2 {
+  color: var(--dark);
+  margin: 20px;
+}
+
+p {
+  margin: 20px;
+}
+
 .btn-no-style {
   background: none;
   border: none;

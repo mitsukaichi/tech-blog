@@ -56,8 +56,8 @@ router.get('/blog/:id', async (req, res) => {
             creation_date: dbPostData.dataValues.comments[i].dataValues.creation_date,
         })
     };
-    console.log(post);
-    res.render('blog', { post});
+    // return the post object and loggedIn status in the req.session to determine if user can leave comments or not
+    res.render('blog', { post ,  loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

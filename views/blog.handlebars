@@ -8,15 +8,20 @@
   </div>  
 </section>
 
+<h2>Comments</h2>
+
 {{#each post.comments as |comment|}}
 {{> comment-details}}
 {{/each}}
 
-<br>
 
+{{#if loggedIn}}
 <section class="card">
     <form class="add-comment">
     <input class='comment-input' type="text" value="Add your comment">
     <input class='comment-submit' type="Submit" value="Submit">
     </form>
 </section>
+{{else}}
+<p><a href="/login">Login</a> to leave your comment </p>
+{{/if}}
