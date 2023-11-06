@@ -3,7 +3,6 @@ const loginFormHandler = async (event) => {
 
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
-
   if (email && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
@@ -15,7 +14,7 @@ const loginFormHandler = async (event) => {
       // reload the page to generate the content shown for the user after logging in
       document.location.replace('/');
     } else {
-      alert('Failed to log in.');
+      alert('Incorrect email or password. Please try again!');
     }
   }
 };
@@ -43,10 +42,8 @@ const signupFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+document.getElementById('login-action').addEventListener('click', loginFormHandler);
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+// document
+//   .querySelector('.signup-form')
+//   .addEventListener('submit', signupFormHandler);

@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
         posts.push(dbPostData[i].dataValues);
         posts[i].username = dbPostData[i].dataValues.user.dataValues.username;
       };
-      res.render('homepage', { posts });
+      res.render('homepage', { posts, loggedIn: req.session.loggedIn  });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -64,7 +64,17 @@ router.get('/blog/:id', async (req, res) => {
     }
   });
   
-
 // Get all posts you wrote in the dashboard page
+
+
+// Login page - redirect user to the home page if the user is already logged in
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+  } else {
+    res.render('login');
+  }
+});
+
 
 module.exports = router;
