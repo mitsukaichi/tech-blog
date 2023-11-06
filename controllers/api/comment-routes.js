@@ -14,7 +14,25 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Create a comment
+// Create a comment to the specific post
+router.post('/', async (req, res) => {
+  res.json(req.body);
+  // try {
+  //   const newComment = await Comment.create({
+  //     content: req.body.comment,
+  //     post_id: post_id,
+  //     author_id: author_id,
+  //   });
+  // if (newComment) {
+  //   res.status(200).json(commentData);
+  // } else {
+  //   res.status(400).json({ message: 'Failed to add comment' });
+  // }
+  // } catch (err) {
+  //   console.log(err);
+  //   res.status(500).json(err);
+  // }
+});
 
 
 module.exports = router;

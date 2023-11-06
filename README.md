@@ -65,3 +65,4 @@ The following animation demonstrates the application functionality:
 
 - [HTML form element - W3 Schools](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit)
 - [TypeError: Router.use() requires middleware function but got a Object](https://stackoverflow.com/questions/27465850/typeerror-router-use-requires-middleware-function-but-got-a-object)
+- [https://www.w3schools.com/jsref/met_loc_reload.asp](https://www.w3schools.com/jsref/met_loc_reload.asp)

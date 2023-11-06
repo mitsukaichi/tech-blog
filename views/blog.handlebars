@@ -20,10 +20,12 @@
   <section class="card">
       <form class="add-comment">
       <input class='comment-input' type="text" value="Add your comment">
-      <input class='comment-submit' type="Submit" value="Submit">
+      <input id='comment-submit' type="Submit" value="Submit">
       </form>
   </section>
   {{else}}
   <p><a href="/login">Login</a> to leave your comment </p>
   {{/if}}
 </div>
+
+<script src="../js/comment.js"></script>
