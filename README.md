@@ -9,6 +9,11 @@
 - [Window location.reload()](https://www.w3schools.com/jsref/met_loc_reload.asp)
 - [Text after space character cut off in input text field](https://stackoverflow.com/questions/54799469/text-after-space-character-cut-off-in-input-text-field-when-reloading-php-script)
 
+## Use
+
+- This app is deployed and available at: https://mituskaichi-tech-blog-ebe1bd585964.herokuapp.com/
+- [Screenshot](https://github.com/mitsukaichi/note-taker/assets/45612744/cbfc2b29-4f11-46f8-9258-9e23f697cd97)
+
 ## License
 
 MIT License
