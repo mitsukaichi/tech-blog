@@ -30,11 +30,11 @@ router.get('/:id', async (req, res) => {
   });
  
 // Update a post
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
     try {
       const postData = await Post.update(req.body, {
         where: {
-          id: req.params.id,
+          id: req.body.id,
         },
       });
       if (!postData[0]) {
@@ -48,11 +48,11 @@ router.put('/:id', async (req, res) => {
   });
   
 // Delete a post
-router.delete('/:id', async (req, res) => {
+router.delete('/', async (req, res) => {
     try {
       const postData = await Post.destroy({
         where: {
-          id: req.params.id,
+          id: req.body.id,
         },
       });
       if (!postData) {

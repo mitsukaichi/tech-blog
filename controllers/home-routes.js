@@ -5,6 +5,7 @@ const { User, Post, Comment } = require('../models');
 router.get('/', async (req, res) => {
     try {
       const dbPostData = await Post.findAll({
+        order: [['creation_date', 'DESC']],
         include: [
           {
             model: User,
@@ -88,11 +89,12 @@ router.get('/dashboard', async (req, res) => {
   if (req.session.loggedIn) {
     try {
       const dbPostData = await Post.findAll({
+        order: [['creation_date', 'DESC']],
         include: [
           {
             model: User,
             attributes: ['username'],
-            where: {id: req.session.req.session.user_id}
+            where: {id: req.session.user_id}
           },
         ],
       });
@@ -113,5 +115,30 @@ router.get('/dashboard', async (req, res) => {
 
 // New post page
 router.get('/newpost', (req, res) => {res.render('newpost', { loggedIn: req.session.loggedIn });});
+
+// Get a single post with comment for the post detail page
+router.get('/edit/:id', async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/');
+  } else {
+    try {
+      const dbPostData = await Post.findByPk(req.params.id);
+      // Double check if the login user is the auther of the post
+      if (req.session.user_id = dbPostData.dataValues.author_id) {
+        const post = {
+          title: dbPostData.dataValues.title,
+          content: dbPostData.dataValues.content,
+          creation_date: dbPostData.dataValues.creation_date,
+        };
+        res.render('edit', { post ,  loggedIn: req.session.loggedIn });
+      } else {
+        res.redirect('/');
+      };
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  }
+});
 
 module.exports = router;

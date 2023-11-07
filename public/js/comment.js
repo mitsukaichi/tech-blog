@@ -11,7 +11,6 @@ const commentHandler = async (event) => {
       });
   
       if (response.ok) {
-        console.log(response);
         location.reload();
       } else {
         alert('Failed to leave comment. Try again');

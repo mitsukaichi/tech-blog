@@ -11,7 +11,7 @@ const postHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
         alert('Your blog was successfully posted!');
       } else {
         alert('Failed to post a new blog. Try again');
